@@ -2,6 +2,9 @@ package com.zz.entity;
 
 import java.awt.Graphics;
 
+/**
+ *	行走动作
+ */
 public class Walk {
 	private int x,y;
 	private int frame = 0;

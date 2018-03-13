@@ -5,6 +5,9 @@ import java.awt.Graphics;
 import com.zz.control.SoftControl;
 import com.zz.frame.Constant;
 
+/**
+ *	召唤动作
+ */
 public class Summon {
 	private int x,y;
 	private int frame = 0;

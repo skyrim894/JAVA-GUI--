@@ -7,6 +7,9 @@ import javax.swing.ImageIcon;
 
 import com.zz.frame.Constant;
 
+/**
+ *	所有图片的路径
+ */
 public class Icons {
 	
 	static int SEELP_IMG_SIZE = getFilesLenth(Constant.SLEEP_IMG);
@@ -78,7 +81,7 @@ public class Icons {
 			File filedir = new File(filepath);  
 		    File[] filelist = filedir.listFiles();  
 		    for (File file : filelist) {  
-		     String filename = file.getName().toLowerCase(); //toLowerCase()ת����Сд 
+		     String filename = file.getName().toLowerCase();
 		     if (filename.endsWith(format)) {  
 		        size++;
 		     }  

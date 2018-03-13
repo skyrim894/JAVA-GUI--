@@ -4,6 +4,9 @@ import java.awt.Graphics;
 
 import com.zz.control.SoftControl;
 
+/**
+ *	执行抓取动作
+ */
 public class Grap {
 	private int x,y;
 	private int frame = 0;

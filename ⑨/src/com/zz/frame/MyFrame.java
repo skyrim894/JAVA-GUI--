@@ -4,21 +4,14 @@ import javax.swing.JFrame;
 
  
 public class MyFrame extends JFrame implements Constant{  
-  
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	public MyFrame(MyPanel myPanel) {  
-    	this.setUndecorated(true); // ²»×°ÊÎ  
-    	this.setSize(FRAME_WIDTH, FRAME_HEIGHT); // ÉèÖÃ´°¿Ú´óĞ¡  
-//      AWTUtilities.setWindowOpaque(this, false);//´°¿ÚÍ¸Ã÷ 
-//      AWTUtilities.setWindowOpacity(this, 0.8f);
-        this.setBackground(new Color(0,0,0,0));//alpha·ÖÁ¿ÎªÁã
+    	this.setUndecorated(true);//ä¸éœ€è¦è¾¹æ¡†
+    	this.setSize(FRAME_WIDTH, FRAME_HEIGHT);  
+        this.setBackground(new Color(0,0,0,0));//è®¾ç½®çª—å£èƒŒæ™¯ä¸ºé€æ˜
         this.setLocation(FRAME_X, FRAME_Y);
-        this.setAlwaysOnTop(true);
+        this.setAlwaysOnTop(true);//çª—å£ç½®é¡¶
         this.setContentPane(myPanel);
-//        this.setVisible(true);
     }
 }

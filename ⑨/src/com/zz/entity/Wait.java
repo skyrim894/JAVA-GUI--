@@ -2,6 +2,9 @@ package com.zz.entity;
 
 import java.awt.Graphics;
 
+/**
+ *	等待动作
+ */
 public class Wait {
 	private int x,y;
 	private int frame = 0;

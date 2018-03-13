@@ -3,6 +3,9 @@ package com.zz.frame;
 import com.zz.control.MouseControl;
 import com.zz.control.SoftControl;
 
+/**
+ *	è¯¥ç±»å®ç°éœ€è¦ç§»åŠ¨çª—å£çš„åŠ¨ä½œ
+ */
 public class FrameAction {
 private SoftControl softControl;
 	
@@ -13,22 +16,21 @@ private SoftControl softControl;
 	public void drawFrameAction(){
 		int L_Y=(int)softControl.myFrame.getLocationOnScreen().getY();
 		int L_X=(int)softControl.myFrame.getLocationOnScreen().getX();
-
-		//´°¿ÚYÖá³¬³öÆÁÄ»Ê±ÖØÖÃÎªYÖá³õÊ¼¸ß¶È
+		
+		//é™åˆ¶yè½´ä½ç½®
 		if(L_Y+Constant.FRAME_HEIGHT>Constant.SCREEN_HEIGHT){
 			SoftControl.ACTION_ID=Constant.WAIT;
 			L_Y = Constant.FRAME_Y;
 		}
 		
-		//ÏÂ×¹
 		if(L_Y+Constant.FRAME_HEIGHT<Constant.SCREEN_HEIGHT){
+			//æ‰§è¡Œå è½åŠ¨ä½œæ—¶çª—å£çš„åŠ¨ä½œ
 			if(!MouseControl.isGrap){
 				SoftControl.ACTION_ID=Constant.FALL;
 				L_Y+=10;
-			
-			//ÏÂ×¹Ê±²»ÄÜ×Ô¶¯¸Ä±ä¶¯×÷
-			SoftControl.CAN_CHANGE_ACTION = false;
+				SoftControl.CAN_CHANGE_ACTION = false;
 			}
+			//å è½åˆ°åº•éƒ¨æ—¶æ”¹ä¸ºé™ååŠ¨ä½œ
 			if(L_Y+Constant.FRAME_HEIGHT>=Constant.SCREEN_HEIGHT){
 				L_Y = Constant.FRAME_Y;
 				SoftControl.ACTION_ID = Constant.SIT;
@@ -36,21 +38,18 @@ private SoftControl softControl;
 			}
 		}
 		
-		//×ß¶¯
+		//æ‰§è¡Œè¡Œèµ°åŠ¨ä½œæ—¶çª—å£çš„åŠ¨ä½œ
 		if(SoftControl.ACTION_ID==Constant.WALK){
-			
 			L_X-=10;
 			if(L_X+Constant.FRAME_WIDTH<0){
 				L_X=Constant.SCREEN_WIDTH;
 			}
 		}
 		
-		//Ë¯¾õÊ±£¬×Ô¶¯¸Ä±ä¶¯×÷¹Ø±Õ
 		if(SoftControl.ACTION_ID==Constant.SLEEP){
 			SoftControl.CAN_CHANGE_ACTION = false;
 		}
 		
-		//µÈ´ıÊ±×Ô¶¯µÈ´ı¶¯×÷´ò¿ª
 		if(SoftControl.ACTION_ID==Constant.WAIT){
 			SoftControl.CAN_CHANGE_ACTION = true;
 		}

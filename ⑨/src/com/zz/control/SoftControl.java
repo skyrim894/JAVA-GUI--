@@ -7,8 +7,9 @@ import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JOptionPane;
-import com.zz.dao.SoftDao;
+
 import com.zz.entity.Fall;
 import com.zz.entity.Grap;
 import com.zz.entity.Icons;
@@ -22,23 +23,22 @@ import com.zz.frame.FrameAction;
 import com.zz.frame.MyFrame;
 import com.zz.frame.MyPanel;
 
+/**
+ *	所有类的主控制器
+ */
 public class SoftControl {
-	//��ǰ����
-	public static int ACTION_ID = 0;
-	//�Ƿ��ܸı䶯��
+	public static int ACTION_ID = 0;//表示动作执行时的id
 	public static boolean CAN_CHANGE_ACTION = true; 
-	//�����Ƿ���ʾ
 	public static boolean IS_WORD_VISIBLE = false;
-	//��ǰ����
 	public static int NOW_WORD = 0 ; 
 	
 	public MyPanel myPanel;
 	public MyFrame myFrame;
 	public Icons icons = new Icons();
-	public SoftDao softDao;
 	public TimerControl timerControl;
 	public FrameAction frameAction;
 	
+	//设置各个动作的初始坐标（相对窗口）
 	public Fall fall = new Fall(10,50);
 	public Grap grap = new Grap(10, 50);
 	public Sit sit = new Sit(10,50);
@@ -59,11 +59,10 @@ public class SoftControl {
 		myFrame.addMouseListener(mouseControl);
 		myFrame.addMouseMotionListener(mouseControl);
 		
-		softDao = new SoftDao(this);
 		frameAction = new FrameAction(this);
 		timerControl = new TimerControl(this);
 		timerControl.start();
-		
+		//添加系统托盘
 		if(SystemTray.isSupported()){
 			SystemTray systemTray = SystemTray.getSystemTray();
 			ActionListener listener1 = new ActionListener() {
@@ -77,22 +76,18 @@ public class SoftControl {
 				    }	    
 			   };	
 			   
-			   // ���������˵�
 			PopupMenu popup = new PopupMenu();
 			   
-			   //������ѡ��
-			MenuItem mainFrameItem = new MenuItem("最大化");
+			MenuItem mainFrameItem = new MenuItem("(max)");
 			mainFrameItem.addActionListener(listener1);
 			   
-			   //��С������
-			MenuItem limitFrameItem = new MenuItem("最小化");
+			MenuItem limitFrameItem = new MenuItem("(min)");
 			limitFrameItem.addActionListener(listener2);
 			   
-			 //�˳�����ѡ��
-			MenuItem exitItem = new MenuItem("退出");
+			MenuItem exitItem = new MenuItem("(exit)");
 			exitItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			     if (JOptionPane.showConfirmDialog(null, "w.w", "exit?", JOptionPane.YES_NO_OPTION) == 0) {
+			     if (JOptionPane.showConfirmDialog(null, "exit", "exit?", JOptionPane.YES_NO_OPTION) == 0) {
 			      System.exit(0);
 			     }
 			    }
@@ -102,7 +97,7 @@ public class SoftControl {
 			popup.add(limitFrameItem);
 			popup.add(exitItem);
 			   
-			TrayIcon  trayIcon = new TrayIcon(Icons.ICON_IMG, "パガ", popup);// ����trayIcon
+			TrayIcon  trayIcon = new TrayIcon(Icons.ICON_IMG, "パガ", popup);
 			trayIcon.addActionListener(listener1);
 			trayIcon.addActionListener(listener2);
 			try {

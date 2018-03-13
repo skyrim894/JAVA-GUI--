@@ -6,6 +6,9 @@ import java.awt.Graphics;
 import com.zz.control.SoftControl;
 import com.zz.frame.Constant;
 
+/**
+ *	执行说话动作
+ */
 public class Say {
 
 	public int x ;

@@ -6,10 +6,9 @@ import javax.swing.JPanel;
 import com.zz.control.SoftControl;
 
 public class MyPanel extends JPanel implements Constant{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
+	
 	private SoftControl softControl;
 	
 	public MyPanel(SoftControl softControl){
@@ -18,7 +17,7 @@ public class MyPanel extends JPanel implements Constant{
 	}
 
 	public void paintComponent(Graphics g){
-//		System.out.println(SoftControl.ACTION_ID);
+		//调用动作
 		switch(SoftControl.ACTION_ID){
 		case WAIT : softControl.wait.draw(g);
 			break;
