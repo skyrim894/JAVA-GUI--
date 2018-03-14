@@ -16,6 +16,7 @@ public class KeyControl extends KeyAdapter{
 			System.exit(0);
 		}
 		
+		//每次添加新功能需要在此加上键盘控制键
 		if(e.getKeyCode()==KeyEvent.VK_1){
 			MainControl.Snow = !MainControl.Snow;
 		}
@@ -32,13 +33,16 @@ public class KeyControl extends KeyAdapter{
 			MainControl.PopBall = !MainControl.PopBall;
 		}
 		
+		//暂停画面
 		if(e.getKeyCode()==KeyEvent.VK_SPACE){
 			MainControl.stop = !MainControl.stop;
 		}
 		
+		//增大重绘时间间隔
 		if(e.getKeyCode() == KeyEvent.VK_UP){
 			MainControl.speed+=10;
 		}
+		//减小重绘时间间隔
 		if(e.getKeyCode() == KeyEvent.VK_DOWN){
 			if(MainControl.speed>10)
 				MainControl.speed-=10;

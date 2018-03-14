@@ -5,25 +5,22 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.concurrent.ThreadLocalRandom;
+
 import javax.swing.JPanel;
+
 import com.zz.control.MainControl;
 import com.zz.effect.Bomb;
 import com.zz.effect.LinkLine;
-import com.zz.effect.LinkStart;
 import com.zz.effect.PopBall;
 import com.zz.util.Constant;
 
 public class MyPanel extends JPanel{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private MainControl mainControl;
 	private Bomb bomb = new Bomb();
 	private LinkLine link = new LinkLine();
 	private PopBall ball = new PopBall();
-	private LinkStart linkStart = new LinkStart();
 	
 	public MyPanel(MainControl mainControl){
 		this.mainControl = mainControl;
@@ -42,10 +39,9 @@ public class MyPanel extends JPanel{
 			link.draw(gc);
 		if(MainControl.PopBall)//弹球效果
 			ball.draw(g);
-		if(MainControl.LinkStart)//linkstart效果
-			linkStart.draw(gc);
 	}
 	
+	//打印提示信息
 	public void drawTip(Graphics2D g){
 		g.setColor(Color.WHITE);
 		int initY = 50;

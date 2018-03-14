@@ -4,9 +4,11 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
 
+/**
+ *	烟花效果具体实现类
+ */
 public class Bomb {
-	// Bomb������
-	// ���ӵ���㣬�ٶȣ�����
+	
 	public Vec2f position, velocity, acceleration;
 	public double life, age, start_time;
 	public int size;
@@ -22,9 +24,7 @@ public class Bomb {
 	}
 
 	public Color Bombcolor;
-	// ������������
 	private ArrayList<Particle> pr = new ArrayList<>();
-	// ������ɫ
 	private Color color2[] = { Color.BLUE.brighter(), Color.CYAN.brighter(), Color.GRAY.brighter(),
 			Color.lightGray.brighter(), Color.ORANGE.brighter(), Color.RED.brighter(), Color.ORANGE.brighter(),
 			Color.magenta.brighter(), Color.YELLOW.brighter() };
@@ -33,7 +33,6 @@ public class Bomb {
 			new Color(100, 80, 250,100), new Color(80, 0, 0,100),new Color(0,0,100,100),new Color(0,50,200,100),new Color(11,151,10,100) };
 	private int colornum1 = -1, colornum2 = -1;
 
-	// ����ɢ
 	public void drawscatter(Graphics2D g2d, double dt, double x, double y) {
 		if (colornum1 == -1 || colornum2 == -1) {
 			colornum1 = (int) (Math.random() * (color1.length - 1));
@@ -67,14 +66,9 @@ public class Bomb {
 				pr.add(tp);
 			}
 		}
-		// �����е����ӻ������������ٻ���������
-//		Image image = panel.createImage(panel.getWidth(), panel.getHeight());
-//		g2d.setColor(new Color(255,255,255,100));
-	//	bg.fillRect(0, 0, panel.getWidth(), panel.getHeight());// ������
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		for (int i = 0; i < pr.size(); ++i) {
 			Particle p = pr.get(i);
-			// 1.�ж����ӵ������Ƿ��ڣ����ں󣬴��������Ƴ�
 			if (p.age == 1)
 				alpha = 1f;
 			p.age += dt;
@@ -84,27 +78,20 @@ public class Bomb {
 			
 			if(p.age>7)
 				p.size-=0.1;
-			// 2.����ÿ�����ӵ���һ��λ��
 			p.position = p.position.add(p.velocity.multiply(dt));
 			p.velocity = p.velocity.add(p.acceleration.multiply(dt));
 
 			alpha -= 0.00019 / (double) p.life;
-//			g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.DST_OUT, alpha));// ͸����
-			// ����������
 			g2d.setColor(p.color);
 			g2d.fillOval(p.getX(), p.getY(), p.size, p.size);
 		}
-		// ������ͼƬ���������
-//		g.drawImage(image, 0, 0, null);
 	}
 
-	// ����һ����������̻���
 	public static Vec2f sampleDirectionv2() {
 		double theta = Math.random() * 4 * Math.PI;
 		return new Vec2f((12 * Math.cos(theta)), (12 * Math.sin(theta)));
 	}
 
-	// ����һ����������ٶ�
 	public static Vec2f sampleDirectionv1() {
 		double theta = Math.random() * 4 * Math.PI;
 		return new Vec2f((20 * Math.cos(theta)), 20 * (Math.sin(theta)));

@@ -4,6 +4,9 @@ import java.awt.Color;
 
 import com.zz.util.Constant;
 
+/**
+ *	模拟球形特征
+ */
 public class Ball{
 	private int b_x;
 	private int b_y;

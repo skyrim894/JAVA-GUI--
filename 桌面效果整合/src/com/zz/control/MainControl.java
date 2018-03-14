@@ -2,10 +2,9 @@ package com.zz.control;
 
 import java.awt.Point;
 
-import com.zz.effect.SEffect;
+import com.zz.effect.Snow;
 import com.zz.frame.MyFrame;
 import com.zz.frame.MyPanel;
-import com.zz.util.Constant;
 
 public class MainControl {
 	private KeyControl keyControl;
@@ -13,10 +12,10 @@ public class MainControl {
 	private TimeControl timeControl;
 	MyPanel myPanel;
 	MyFrame myFrame;
-	public SEffect sEffect;
+	public Snow sEffect;
 	
 	//以下全局变量
-	public static int SPEED = Constant.INIT_SPEED;
+	//鼠标位置
 	public static Point mouse = null;
 	//雪花效果
 	public static boolean Snow = false;
@@ -26,12 +25,10 @@ public class MainControl {
 	public static boolean Line = false;
 	//弹球效果
 	public static boolean PopBall = false;
-	//LinkStart效果
-	public static boolean LinkStart = true;
-
+	//暂停画面
 	public static boolean stop = false;
 	
-	//控制速率
+	//控制刷新速率
 	public static int speed = 100;
 	
 	public MainControl(){
@@ -40,7 +37,7 @@ public class MainControl {
 		mouse = mouseControl.getOrigin();
 		
 		myPanel = new MyPanel(this);
-		sEffect = new SEffect(this);
+		sEffect = new Snow(this);
 		
 		myFrame = new MyFrame(myPanel);
 		myFrame.setVisible(true);

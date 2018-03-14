@@ -2,8 +2,11 @@ package com.zz.effect;
 
 import java.awt.Color;
 
+/**
+ *	ç”¨æ¥å­˜æ”¾å¯¹è±¡çš„ç”Ÿå‘½å‘¨æœŸä¿¡æ¯ï¼Œé¢œè‰²ä¿¡æ¯ï¼Œ
+ */
 public class Particle {
-// Á£×ÓµÄÆğµã£¬ËÙ¶È£¬ÖØÁ¦
+	
 public Vec2f position,velocity,acceleration;
 	public double life;
 	public double age;
@@ -14,7 +17,6 @@ public Vec2f position,velocity,acceleration;
 	public Particle() {
 	}
 
-	// »­Á£×ÓÊ±µÄx,y×ø±ê
 	public int getX() {
 		return (int) this.position.x;
 	}

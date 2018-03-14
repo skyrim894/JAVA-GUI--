@@ -6,6 +6,9 @@ import java.awt.Graphics;
 import com.zz.control.MouseControl;
 import com.zz.util.Constant;
 
+/**
+ *	弹球功能具体实现类
+ */
 public class PopBall {
 	private Ball ball;
 	private double t_x = 0;
@@ -31,7 +34,7 @@ public class PopBall {
 			t_y = MouseControl.s_dra.y-MouseControl.origin.y;
 		}
 
-		limt(); 
+		limit(); 
 		ball.setB_speed_x((int)t_x);
 		ball.setB_speed_y((int)t_y);
 		ball.setB_x(ball.getB_x()+ball.getB_speed_x());
@@ -39,19 +42,7 @@ public class PopBall {
 	}	
 	
 	//限制小球范围
-	public void limt(){
-		/*if(t_x>0){
-			t_x--;
-		}else if(t_x<0){
-			t_x++;
-		}
-		
-		if(t_y>0){
-			t_y--;
-		}else if(t_y<0){
-			t_y++;
-		}
-		*/
+	public void limit(){
 		t_x *=0.96;
 		t_y *=0.96;
 		if((ball.getB_x()>=Constant.SCREEN_WIDTH-ball.getB_r()&&t_x>0)||(ball.getB_x()<=0&&t_x<0)){

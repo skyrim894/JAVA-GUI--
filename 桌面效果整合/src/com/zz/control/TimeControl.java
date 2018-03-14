@@ -12,8 +12,11 @@ public class TimeControl {
 		mainThread = new Thread(){
 			public void run(){
 				while(true){
-					mainControl.myPanel.repaint();
 					try {
+						while(MainControl.stop){
+							Thread.sleep(MainControl.speed);
+						}
+						mainControl.myPanel.repaint();
 						Thread.sleep(MainControl.speed);
 					} catch (InterruptedException e) {
 						

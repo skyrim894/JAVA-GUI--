@@ -8,8 +8,8 @@ import com.zz.control.MainControl;
  * 		1--雪花效果
  * 		2--烟花效果
  * 		3--连线效果
- * 		4--弹球（可能会出现越界）
- * @author zzq
+ * 		4--弹球
+ * @author skyrim894
  *
  */
 public class App {
