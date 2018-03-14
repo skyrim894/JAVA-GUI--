@@ -15,7 +15,6 @@ public class MainController {
 	public static boolean isCutStart = false;
 	public static boolean isSave = false;
 	public static boolean isHidden = false;
-//	public boolean isDraw = false ;TODO
 	
 	public MainController(){
 		this.myPanel = new MyPanel(this);

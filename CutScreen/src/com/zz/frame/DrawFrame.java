@@ -16,7 +16,8 @@ public class DrawFrame implements Constant{
 	public DrawFrame(MainController mainController){
 		this.mainController = mainController;
 	}
-
+	
+	//绘制截图画面
 	public void draw(Graphics g) {
 		if(MainController.isCutStart){
 			start = mainController.mouseController.getORIGIN_START();
@@ -28,9 +29,9 @@ public class DrawFrame implements Constant{
 			g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 		}
 		
-		if(!MainController.isCutStart){
+		if(!MainController.isCutStart&&!MainController.isHidden){
 			drawTips(g,"Ctrl+C to copy,Ctrl+S to save");
-		}
+		} 
 
 		g.clearRect(start.x,start.y,end.x-start.x,end.y-start.y);
 		
@@ -41,7 +42,8 @@ public class DrawFrame implements Constant{
 			drawTips(g,"保存到默认路径"+SAVE_PATH,SCREEN_WIDTH-400, SCREEN_HEIGHT-20,14);
 		}
 	}
-
+	
+	//绘制提示信息
 	public void drawTips(Graphics g,String tips){
 		g.setColor(new Color(255,255,0,200));
 		g.setFont(new Font(null, Font.BOLD, 30));
@@ -53,5 +55,4 @@ public class DrawFrame implements Constant{
 		g.setFont(new Font(null, Font.BOLD, fontSize));
 		g.drawString(tips,x,y);
 	}
-
 }

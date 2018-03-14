@@ -62,14 +62,11 @@ public class KeyControl extends KeyAdapter{
 		if(e.getKeyCode()==KeyEvent.VK_SPACE){
 			MainController.isHidden = !MainController.isHidden; 
 		}
-		
 	}
 
-	@Override
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_CONTROL){
 			isCtrl = false;
-			
 		}
 		
 	}

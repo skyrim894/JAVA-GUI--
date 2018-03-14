@@ -10,7 +10,7 @@ public class MyFrame extends JFrame implements Constant{
 	private static final long serialVersionUID = 1L;
 
 	public MyFrame(MyPanel myPanel){
-		this.setUndecorated(true);//��װ��
+		this.setUndecorated(true);
 		this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		this.setLocation(FRAME_X,FRAME_Y);
 		this.setBackground(new Color(0,0,0,0));

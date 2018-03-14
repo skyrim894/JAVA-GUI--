@@ -7,11 +7,13 @@ import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
 
+/**
+ *	实现图片放置到系统剪贴板
+ */
 public class ToClipboard implements Transferable{
 	Image image;
 	public ToClipboard(Image image) {
 		this.image = image;
-	
 	}
 	
 	public void setImage(){

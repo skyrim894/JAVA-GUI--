@@ -8,9 +8,6 @@ import com.zz.control.MainController;
 
 public class MyPanel extends JPanel{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	MainController mainController;
 	
